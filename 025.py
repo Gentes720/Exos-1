@@ -1,26 +1,9 @@
-array1, array2 = [], []
-lenth1 = int(input("enter lenth of array1 "))
-i=0
-while i < lenth1 :
-    print("Enter the value of the ",i+1," value" )
-    value = input()
-    array1.insert(i, value)
-    i += 1
+import numpy as np
+array1, array2 = np.arange(6), [2, 4, 7, 5,8 ,9]
 print(array1)
-lenth2 = int(input("enter lenth of array2 "))
-i=0
-while i < lenth2 :
-    print("Enter the value of the ",i+1," value" )
-    value = input()
-    array2.insert(i, value)
-    i += 1
 print(array2)
-array1.extend(array2)
-print(array1)
-
-uniqueArray = []
-for element in array1:
-    if element not in uniqueArray:
-        uniqueArray.append(element)
-print(uniqueArray)
+stackArray = np.hstack((array1, array2))
+print(stackArray)
+print(np.unique(stackArray))
+# unique automaticaly delete repeated values in an array
 
