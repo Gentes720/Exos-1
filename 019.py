@@ -1,21 +1,31 @@
+import numpy as np
 def FistPprimeNum(n, p):
-    def prime(number):
-        i , c = 1 , 0
-        while i <= number/2 :
-            if number % i == 0:
-                c += 1 # c changes when there is at least one number different from 1 and number which is a divider of number
-            i += 1
-        if c == 1:
-            return True
-        else : 
+    def prime(x): # prime number tester function
+        if x < 1:
             return False
+        if x == 1:
+            return True
+        if x == 2:
+            return True
+        if x % 2 == 0:
+            return False
+        max_divisor = int(np.sqrt(x)) + 1 # the square root of a number is it maximun dividor 
+        for i in range(3, max_divisor, 2):
+            if x % i == 0:
+                return False
+        return True
+    
+    array = np.zeros(p, dtype= int)
 
     i = n + 1 
     CountNumPrime = 0
     while CountNumPrime < p:
         if prime(i):
-            print(i)
+            array[CountNumPrime]= i
             CountNumPrime += 1
         i +=1
 
+    print(array)
+
+# test     
 FistPprimeNum(3,4)
